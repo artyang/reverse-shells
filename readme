@@ -50,3 +50,4 @@ ncat -v --listen --ssl
 
 #ssh local port forwarding
 ssh -L local_port:destination_server_ip:remote_port ssh_server_hostname
+#ssh –L 5901:188.17.0.5:4492 pnap@ssh.server.com
