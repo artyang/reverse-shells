@@ -94,7 +94,9 @@ ncat --ssl-ciphers <HIGH:!aNULL:!eNULL> <server> 443
 
 #ncat server
 ncat -v --listen --ssl
-
+#
+# SSH Tunneling (useful when only SSH is open) - forward other protocols through the tunnel like HTTPS, HTTP, SMTP, ncat etc.
+#
 #ssh local port forwarding
 ssh -L local_port:destination_server_ip:remote_port ssh_server_hostname
 
